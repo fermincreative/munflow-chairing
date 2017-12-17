@@ -1,3 +1,16 @@
 /* YOUR CUSTOM STYLES */
+header#masthead {
+  width: calc(100% - 160px);
+  margin: 0 auto; }
 
-/*# sourceMappingURL=style.css.map */
+#left-sidebar {
+  background-color: #004672;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  width: 80px; }
+
+#content {
+  width: calc(100% - 160px);
+  margin: 0 auto; }
