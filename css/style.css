@@ -18,6 +18,8 @@ header#masthead {
     height: 80px;
     background-color: #004672;
     border: 0px solid #fff; }
+    #left-sidebar button.standard i {
+      color: #fff; }
     #left-sidebar button.standard p {
       font-size: 0.5em;
       text-transform: uppercase;
