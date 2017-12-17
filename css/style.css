@@ -24,7 +24,7 @@ header#masthead {
     -moz-transition: 0.25s;
     transition: 0.25s; }
     #left-sidebar button.standard p {
-      font-size: 0.5em;
+      font-size: 0.4em;
       text-transform: uppercase;
       color: #fff;
       margin-top: 0.5rem;
@@ -35,6 +35,9 @@ header#masthead {
     -moz-transition: 0.25s;
     transition: 0.25s; }
 
-#content {
+.content {
   width: calc(100% - 160px);
   margin: 0 auto; }
+
+.content-hidden {
+  display: none; }

@@ -22,7 +22,7 @@
     -moz-transition: 0.25s;
     transition: 0.25s;
     p {
-      font-size: 0.5em;
+      font-size: 0.4em;
       text-transform: uppercase;
       color: $white;
       margin-top: 0.5rem;
@@ -37,7 +37,11 @@
   }
 }
 
-#content {
+.content {
   width: calc(100% - 160px);
   margin: 0 auto;
+}
+
+.content-hidden {
+  display: none;
 }
