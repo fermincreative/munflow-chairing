@@ -59,11 +59,10 @@ $("#committee-settings #save").click(function(e){
 });
 
 function showRollCall() {
-  var committee_settings_cookie=Cookies.get('committee_settings');
-  if (committee_settings_cookie === undefined) {
+  if (committee_settings === undefined) {
   } else {
-  var committee_settings=JSON.parse(committee_settings_cookie);
-  var committee_members=committee_settings["delegations"];
+  var committee_settings_parsed=JSON.parse(committee_settings);
+  var committee_members=committee_settings_parsed["delegations"];
   console.log(committee_members);
   Object.keys(committee_members).forEach(key => {
       // the value of the current key.
@@ -73,5 +72,20 @@ function showRollCall() {
   };
 });
   };
+
+}
+
+function markAbsent(value) {
+  var committee_settings_parsed=JSON.parse(committee_settings);
+
+}
+
+function markPresent(value) {
+  var committee_settings_parsed=JSON.parse(committee_settings);
+
+}
+
+function markPresentVoting(value) {
+  var committee_settings_parsed=JSON.parse(committee_settings);
 
 }
