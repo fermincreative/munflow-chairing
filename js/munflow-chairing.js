@@ -60,9 +60,9 @@ $("#committee-settings #save").click(function(e){
 
 function showRollCall() {
   var committee_settings_cookie=Cookies.get('committee_settings');
-  if (committee_settings === undefined) {
+  if (committee_settings_cookie === undefined) {
   } else {
-  var committee_settings=JSON.parse(committe);
+  var committee_settings=JSON.parse(committee_settings_cookie);
   var committee_members=committee_settings["delegations"];
   console.log(committee_members);
   Object.keys(committee_members).forEach(key => {
