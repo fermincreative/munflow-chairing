@@ -6,3 +6,8 @@ $('#'+target+'').removeClass('content-hidden');
 $('#left-sidebar button.standard').data("current",''+target+'');
 
 };
+
+var committee_settings=Cookies.get('committee_settings');
+if (committee_settings === undefined) {
+  $('#SetupModal').modal('show');
+}
