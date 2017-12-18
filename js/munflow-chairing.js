@@ -11,8 +11,8 @@ var committee_settings=Cookies.get('committee_settings');
 if (committee_settings === undefined) {
   $('#SetupModal').modal({
     show: true,
-   keyboard: false,
-   backdrop: 'static'
+    keyboard: false,
+    backdrop: 'static',
   });
 }
 
