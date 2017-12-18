@@ -38,6 +38,9 @@ $("#committee-settings #save").click(function(e){
         committee_settings["delegations"][''+delegations_entered+'']={
           name: delegation_value,
           present: false,
+          may_abstain: false,
+          voting_status: 'none',
+          has_passed: false,
           speaking_time: 0,
         };
         delegations_entered++;
@@ -50,7 +53,12 @@ $("#committee-settings #save").click(function(e){
   console.log(committee_settings_string);
   if (committee_settings === undefined) {
   } else {
-  Cookies.set('committee_settings', ''+committee_settings_string+'', { expires: 14 });\
+  Cookies.set('committee_settings', ''+committee_settings_string+'', { expires: 14 });
   location.reload();
   }
 });
+
+function takeRollCall() {
+  var committee_settings=JSON.parse((Cookies.get('committee_settings'));
+
+}
