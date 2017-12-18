@@ -51,4 +51,5 @@ header#masthead {
   margin-left: 5px;
   margin-right: 5px; }
 #rollcall-list button.rollcall-filled {
-  background-color: #004672; }
+  background-color: #004672;
+  color: #fff; }

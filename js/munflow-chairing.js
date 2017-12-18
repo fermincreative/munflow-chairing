@@ -67,15 +67,10 @@ function showRollCall() {
   console.log(committee_members);
   Object.keys(committee_members).forEach(key => {
       // the value of the current key.
-  $('#rollcall-list').append('<div id="'+committee_members[key]+'"class="row"><div class="col-9">'+committee_members[key]["name"]+'</div><div class="col-3">');
+  $('#rollcall-list').append('<div id="country-'+key+'" class="row"><div class="col-8">'+committee_members[key]["name"]+'</div>');
   if (committee_members[key]['present']== false){
-    $('#rollcall-list').append('absent');
-  } else if(committee_members[key]['may_abstain']== true) {
-    $('#rollcall-list').append('present');
-  } else {
-    $('#rollcall-list').append('');
-  }
-  $('#rollcall-list').append('</div></div>');
+    $('#rollcall-list').append('<div class="col-4"><button class="rollcall-standard rollcall-absent rollcall-filled">Absent</button><button class="rollcall-standard rollcall-present" onclick="markPresent('+key+')">Present</button><button class="rollcall-standard rollcall-pv" onclick="markPresentVoting('+key+')">Present & Voting</button></div>');
+  };
 });
   };
 
