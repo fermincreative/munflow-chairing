@@ -68,14 +68,14 @@ function showRollCall() {
       // the value of the current key.
   $('#rollcall-list').append('<div id="country-'+key+'" class="row"><div class="col-8">'+committee_members[key]["name"]+'</div>');
   if (committee_members[key]['present']== false){
-    $('#rollcall-list').append('<div class="col-4"><button class="rollcall-standard rollcall-absent rollcall-filled">Absent</button><button class="rollcall-standard rollcall-present" onclick="markPresent('+key+')">Present</button><button class="rollcall-standard rollcall-pv" onclick="markPresentVoting('+key+')">Present & Voting</button></div>');
+    $('#rollcall-list').append("<div class=\"col-4\"><button class=\"rollcall-standard rollcall-absent rollcall-filled\">Absent</button><button class=\"rollcall-standard rollcall-present\" onclick=\"markPresent('+key+','absent')\">Present</button><button class=\"rollcall-standard rollcall-pv\" onclick=\"markPresentVoting('+key+','absent')\">Present & Voting</button></div>");
   };
 });
   };
 
 }
 
-function markAbsent(value) {
+function markAbsent(value,current_status) {
   var committee_settings_current=JSON.parse(Cookies.get('committee_settings'));
   committee_settings_current["delegations"][value]['present']=false;
   committee_settings_current["delegations"][value]['may_abstain']=false;
@@ -84,7 +84,7 @@ function markAbsent(value) {
 
 }
 
-function markPresent(value) {
+function markPresent(value,current_status) {
   var committee_settings_current=JSON.parse(Cookies.get('committee_settings'));
   committee_settings_current["delegations"][value]['present']=true;
   committee_settings_current["delegations"][value]['may_abstain']=true;
@@ -94,7 +94,7 @@ function markPresent(value) {
 
 }
 
-function markPresentVoting(value) {
+function markPresentVoting(value,current_status) {
   var committee_settings_current=JSON.parse(Cookies.get('committee_settings'));
   committee_settings_current["delegations"][value]['present']=true;
     committee_settings_current["delegations"][value]['may_abstain']=false;
