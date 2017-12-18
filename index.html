@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design Bootstrap</title>
+    <title>MUNFlow</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -136,7 +136,36 @@
       </div>
     </div>
 
-    </div>
+      <div class="modal fade" id="SetupModal" tabindex="-1" role="dialog" aria-labelledby="SetupModal" aria-hidden="true" >
+      <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+              <div class="modal-body">
+                  <h2>Committee Setup</h2>
+
+
+              <form>
+                <div class="form-group">
+                  <label for="CommitteeName">Name of Committee</label>
+                  <input type="text" class="form-control" id="CommitteeName" aria-describedby="CommitteeNameHelp" placeholder="Security Council">
+                  <small id="CommitteeNameHelp" class="form-text text-muted">Enter the name of your committee.</small>
+                </div>
+                <div id="delegation-list">
+                  <h3>Delegations</h3>
+                  <p>Enter your delegations below</p>
+                  <div class="form-group form-delegations">
+                    <input type="text" class="form-control" id="Delegation-1" data-delegation-number="1" placeholder="Delegation 1">
+                    <input type="text" class="form-control" id="Delegation-2" data-delegation-number="2" placeholder="Delegation 2">
+                    <input type="text" class="form-control" id="Delegation-3" data-delegation-number="3" placeholder="Delegation 3">
+                  </div>
+                    <button id="add-delegation" type="button" class="btn btn-info" onclick="addDelegation(3)"><i class="fas fa-plus-circle"></i>Add another delegation</button>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+          </div>
+      </div>
+  </div>
     <!-- /Start your project here-->
 
     <!-- SCRIPTS -->
@@ -148,6 +177,9 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+
+    <!-- JS Cookie --><
+    <script src="js/js.cookie.js"></script>
     <!-- Own JavaScript -->
     <script src="js/munflow-chairing.js"></script>
 </body>
