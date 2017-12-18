@@ -76,16 +76,28 @@ function showRollCall() {
 }
 
 function markAbsent(value) {
-  var committee_settings_parsed=JSON.parse(committee_settings);
+  var committee_settings_current=JSON.parse(Cookies.get('committee_settings'));
+  committee_settings_current["delegations"][value]['present']=false;
+  committee_settings_current["delegations"][value]['may_abstain']=false;
+  var committee_settings_string=JSON.stringify(cookie_settings_current);
+  Cookies.set('committee_settings', ''+committee_settings_string+'', { expires: 14 });
 
 }
 
 function markPresent(value) {
-  var committee_settings_parsed=JSON.parse(committee_settings);
+  var committee_settings_current=JSON.parse(Cookies.get('committee_settings'));
+  committee_settings_current["delegations"][value]['present']=true;
+  committee_settings_current["delegations"][value]['may_abstain']=true;
+  var committee_settings_string=JSON.stringify(cookie_settings_current);
+  Cookies.set('committee_settings', ''+committee_settings_string+'', { expires: 14 });
+
 
 }
 
 function markPresentVoting(value) {
-  var committee_settings_parsed=JSON.parse(committee_settings);
-
+  var committee_settings_current=JSON.parse(Cookies.get('committee_settings'));
+  committee_settings_current["delegations"][value]['present']=true;
+    committee_settings_current["delegations"][value]['may_abstain']=false;
+  var committee_settings_string=JSON.stringify(cookie_settings_current);
+  Cookies.set('committee_settings', ''+committee_settings_string+'', { expires: 14 });
 }
