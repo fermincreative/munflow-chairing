@@ -45,3 +45,20 @@
 .content-hidden {
   display: none;
 }
+
+
+#rollcall-list {
+  h3.country {
+    font-size: 1.25em;
+  }
+  button.rollcall-standard {
+    border: 1px solid $darkblue;
+    background-color: $white;
+    height: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  button.rollcall-filled{
+    background-color: $darkblue;
+  }
+}
