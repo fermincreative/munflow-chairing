@@ -58,7 +58,14 @@ $("#committee-settings #save").click(function(e){
   }
 });
 
-function takeRollCall() {
-  var committee_settings=JSON.parse((Cookies.get('committee_settings'));
+function showRollCall() {
+  var committee_settings=JSON.parse(Cookies.get('committee_settings'));
+  if (committee_settings === undefined) {
+  } else {
+  var committee_members=committee_settings["delegations"];
+  committee_members.forEach(function(entry) {
+    console.log(entry);
+  });
+  };
 
 }
