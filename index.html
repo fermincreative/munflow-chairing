@@ -15,7 +15,6 @@
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
     <!-- Scripts -->
-    <script src="js/munflow-chairing.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
 </head>
 
@@ -24,30 +23,30 @@
     <!-- Start your project here-->
     <div id="left-sidebar">
       <div id="left-sidebar-top">
-        <button class="standard" onclick=showRollCall();>
+        <button id="left-rollcall" data-target="rollcall" data-current="rollcall" class="standard" onclick="showItem('left-rollcall')">
           <i class="fas fa-list"></i>
           <p>Roll Call</p>
         </button>
-        <button class="standard" onclick=showMotions();>
+        <button id="left-motions" data-target="motions" data-current="rollcall" class="standard" onclick="showItem('left-motions')">
           <i class="fas fa-sticky-note"></i>
           <p>Motions</p>
         </button>
-        <button class="standard" onclick=showDebate();>
+        <button id="left-debate" data-target="debate" data-current="rollcall" class="standard" onclick="showItem('left-debate')">
           <i class="fas fa-gavel"></i>
           <p>Debate</p>
         </button>
-        <button class="standard" onclick=showVoting();>
+        <button id="left-voting" data-target="voting" data-current="rollcall" class="standard" onclick="showItem('left-voting')">
           <i class="fas fa-hand-paper"></i>
           <p>Voting</p>
         </button>
 
       </div>
       <div id="left-sidebar-bottom">
-        <button class="standard" onclick=showStatistics();>
+        <button id="left-statistics" data-target="statistics" data-current="rollcall" class="standard" onclick="showItem('left-statistics')">
           <i class="fas fa-chart-bar"></i>
           <p>Statistics</p>
         </button>
-        <button class="standard" onclick=showSettings();>
+        <button id="left-settings" data-target="settings" data-current="rollcall" class="standard" onclick="showItem('left-settings')">
           <i class="fas fa-sliders-h"></i>
           <p>Settings</p>
         </button>
@@ -149,6 +148,8 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Own JavaScript -->
+    <script src="js/munflow-chairing.js"></script>
 </body>
 
 </html>
