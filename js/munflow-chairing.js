@@ -63,9 +63,11 @@ function showRollCall() {
   if (committee_settings === undefined) {
   } else {
   var committee_members=committee_settings["delegations"];
-  committee_members.forEach(function(entry) {
-    console.log(entry);
-  });
+  console.log(committee_members);
+  Object.keys(committee_members).forEach(key => {
+      // the value of the current key.
+  $('#rollcall-list').append('<div class="row"><div class="col-9">'+committee_members[key]["name"]+'</div><div class="col-3"></div></div>');
+});
   };
 
 }
