@@ -189,6 +189,11 @@ function removeCountryGSR(key){
 
 }
 
+function currentSpeakerGSR() {
+  var time = new Date();
+  console.log(time);
+}
+
 function showGSR(){
   var gsr=Cookies.get('gsr');
   var committee_settings=Cookies.get('committee_settings');
