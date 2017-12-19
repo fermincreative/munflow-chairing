@@ -66,11 +66,22 @@ function showRollCall() {
   console.log(committee_members);
   Object.keys(committee_members).forEach(key => {
       // the value of the current key.
-  $('#rollcall-list').append("<div id=\"country-"+ key +"\" class=\"row rollcall-country\"><div class=\"col-8\">"+committee_members[key]["name"]+"</div><div class=\"col-4\"><button class=\"rollcall-standard rollcall-absent rollcall-filled\">Absent</button><button class=\"rollcall-standard rollcall-present\" onclick=\"markPresent("+key+",'absent')\">Present</button><button class=\"rollcall-standard rollcall-pv\" onclick=\"markPresentVoting("+key+",'absent')\">Present & Voting</button></div></div>");
+  if (committee_members[key]["present"]==false) {
+    $('#rollcall-list').append("<div id=\"country-"+ key +"\" class=\"row rollcall-country\"><div class=\"col-8\">"+committee_members[key]["name"]+"</div><div class=\"col-4\"><button class=\"rollcall-standard rollcall-absent rollcall-filled\">Absent</button><button class=\"rollcall-standard rollcall-present\" onclick=\"markPresent("+key+",'absent')\">Present</button><button class=\"rollcall-standard rollcall-pv\" onclick=\"markPresentVoting("+key+",'absent')\">Present & Voting</button></div></div>");
+  }
 
-});
-  };
+  else if (committee_members[key]["present"]==true || committee_members[key]["may_abstain"]==true) {
+    $('#rollcall-list').append("<div id=\"country-"+ key +"\" class=\"row rollcall-country\"><div class=\"col-8\">"+committee_members[key]["name"]+"</div><div class=\"col-4\"><button class=\"rollcall-standard rollcall-absent\" onclick=\"markPresentVoting("+key+",'present')\">Absent</button><button class=\"rollcall-standard rollcall-present rollcall-filled\">Present</button><button class=\"rollcall-standard rollcall-pv\" onclick=\"markPresentVoting("+key+",'present')\">Present & Voting</button></div></div>");
+  }
 
+  else if (committee_members[key]["present"]==true || committee_members[key]["may_abstain"]==false) {
+    $('#rollcall-list').append("<div id=\"country-"+ key +"\" class=\"row rollcall-country\"><div class=\"col-8\">"+committee_members[key]["name"]+"</div><div class=\"col-4\"><button class=\"rollcall-standard rollcall-absent\" onclick=\"markAbsent("+key+",'presentvoting')\">Absent</button><button class=\"rollcall-standard rollcall-present\" onclick=\"markPresent("+key+",'presentvoting')\">Present</button><button class=\"rollcall-standard rollcall-pv rollcall-filled\">Present & Voting</button></div></div>");
+  }
+
+
+  });
+
+}
 }
 
 function markAbsent(value,current_status) {
