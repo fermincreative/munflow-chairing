@@ -199,6 +199,10 @@ function showGSR(){
   else {
     var gsr_parsed=JSON.parse(gsr);
     console.log(gsr_parsed);
+    for (var key in gsr_parsed) {
+    console.log(gsr_parsed[key]);
+    $('#gsr').append("<div id=\"gsr-"+key+"\"><p>"+committee_settings_parsed['delegations'][key]['name']+"</p></div>");
+  }
 
   }
 }
