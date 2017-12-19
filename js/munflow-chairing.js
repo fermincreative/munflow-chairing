@@ -181,6 +181,7 @@ function addCountryGSR(key) {
   }
   $('#gsr').append("<div id=\"gsr-list-"+key+"\"class=\"gsr-country\"><p>"+committee_settings_parsed['delegations'][key]['name']+"</p></div>");
   $("#gsr-countrylist-country-"+key+"").attr('onclick',null);
+  $("#gsr-countrylist-country-"+key+"").addClass('country-in-gsr');
 
 }
 
@@ -191,6 +192,13 @@ function removeCountryGSR(key){
 function showGSR(){
   var gsr=Cookies.get('gsr');
   var committee_settings=Cookies.get('committee_settings');
+  var gsr=Cookies.get('gsr');
   var committee_settings_parsed=JSON.parse(committee_settings);
+  if (gsr === undefined) {
+  }
+  else {
+    var gsr_parsed=JSON.parse(gsr);
+    console.log(gsr_parsed);
 
+  }
 }
