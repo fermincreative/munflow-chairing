@@ -70,11 +70,11 @@ function showRollCall() {
     $('#rollcall-list').append("<div id=\"country-"+ key +"\" class=\"row rollcall-country\"><div class=\"col-8\">"+committee_members[key]["name"]+"</div><div class=\"col-4\"><button class=\"rollcall-standard rollcall-absent rollcall-filled\">Absent</button><button class=\"rollcall-standard rollcall-present\" onclick=\"markPresent("+key+",'absent')\">Present</button><button class=\"rollcall-standard rollcall-pv\" onclick=\"markPresentVoting("+key+",'absent')\">Present & Voting</button></div></div>");
   }
 
-  else if (committee_members[key]["present"]==true || committee_members[key]["may_abstain"]==true) {
-    $('#rollcall-list').append("<div id=\"country-"+ key +"\" class=\"row rollcall-country\"><div class=\"col-8\">"+committee_members[key]["name"]+"</div><div class=\"col-4\"><button class=\"rollcall-standard rollcall-absent\" onclick=\"markPresentVoting("+key+",'present')\">Absent</button><button class=\"rollcall-standard rollcall-present rollcall-filled\">Present</button><button class=\"rollcall-standard rollcall-pv\" onclick=\"markPresentVoting("+key+",'present')\">Present & Voting</button></div></div>");
+  else if (committee_members[key]["present"]==true && committee_members[key]["may_abstain"]==true) {
+    $('#rollcall-list').append("<div id=\"country-"+ key +"\" class=\"row rollcall-country\"><div class=\"col-8\">"+committee_members[key]["name"]+"</div><div class=\"col-4\"><button class=\"rollcall-standard rollcall-absent\" onclick=\"markAbsent("+key+",'present')\">Absent</button><button class=\"rollcall-standard rollcall-present rollcall-filled\">Present</button><button class=\"rollcall-standard rollcall-pv\" onclick=\"markPresentVoting("+key+",'present')\">Present & Voting</button></div></div>");
   }
 
-  else if (committee_members[key]["present"]==true || committee_members[key]["may_abstain"]==false) {
+  else if (committee_members[key]["present"]==true && committee_members[key]["may_abstain"]==false) {
     $('#rollcall-list').append("<div id=\"country-"+ key +"\" class=\"row rollcall-country\"><div class=\"col-8\">"+committee_members[key]["name"]+"</div><div class=\"col-4\"><button class=\"rollcall-standard rollcall-absent\" onclick=\"markAbsent("+key+",'presentvoting')\">Absent</button><button class=\"rollcall-standard rollcall-present\" onclick=\"markPresent("+key+",'presentvoting')\">Present</button><button class=\"rollcall-standard rollcall-pv rollcall-filled\">Present & Voting</button></div></div>");
   }
 
@@ -86,7 +86,6 @@ function showRollCall() {
 
 function markAbsent(key,current_status) {
   var committee_settings_current=JSON.parse(committee_settings);
-  console.log(value);
   committee_settings_current["delegations"][key]['present']=false;
   committee_settings_current["delegations"][key]['may_abstain']=false;
   var committee_settings_string=JSON.stringify(committee_settings_current);
@@ -106,7 +105,6 @@ function markAbsent(key,current_status) {
 
 function markPresent(key,current_status) {
   var committee_settings_current=JSON.parse(committee_settings);
-  console.log(value);
   committee_settings_current["delegations"][key]['present']=true;
   committee_settings_current["delegations"][key]['may_abstain']=true;
   var committee_settings_string=JSON.stringify(committee_settings_current);
