@@ -98,6 +98,9 @@ function markAbsent(key,current_status) {
     $('#country-'+ key +' .rollcall-pv').removeClass('rollcall-filled');
     $('#country-'+ key +' .rollcall-absent').addClass('rollcall-filled');
   }
+  $('#country-'+ key +' .rollcall-absent').attr("onclick",null);
+  $('#country-'+ key +' .rollcall-present').attr("onclick","markPresent("+key+",'absent')");
+  $('#country-'+ key +' .rollcall-pv').attr("onclick","markPresentVoting("+key+",'absent')");
 
 }
 
@@ -116,6 +119,9 @@ function markPresent(key,current_status) {
     $('#country-'+ key +' .rollcall-pv').removeClass('rollcall-filled');
     $('#country-'+ key +' .rollcall-present').addClass('rollcall-filled');
   }
+  $('#country-'+ key +' .rollcall-absent').attr("onclick","markAbsent("+key+",'present')");
+  $('#country-'+ key +' .rollcall-present').attr("onclick",null);
+  $('#country-'+ key +' .rollcall-pv').attr("onclick","markPresentVoting("+key+",'present')");
 
 
 }
@@ -133,7 +139,9 @@ function markPresentVoting(key,current_status) {
   } else  {
     $('#country-'+ key +' .rollcall-present').removeClass('rollcall-filled');
     $('#country-'+ key +' .rollcall-pv').addClass('rollcall-filled');
-
   }
+  $('#country-'+ key +' .rollcall-absent').attr("onclick","markAbsent("+key+",'presentvoting')");
+  $('#country-'+ key +' .rollcall-present').attr("onclick","markPresent("+key+",'presentvoting')");
+  $('#country-'+ key +' .rollcall-pv').attr("onclick",null);
 
 }
