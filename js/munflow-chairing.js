@@ -123,7 +123,7 @@ function markPresent(key,current_status) {
 function markPresentVoting(key,current_status) {
   var committee_settings_current=JSON.parse(committee_settings);
   committee_settings_current["delegations"][key]['present']=true;
-    committee_settings_current["delegations"]key]['may_abstain']=false;
+    committee_settings_current["delegations"][key]['may_abstain']=false;
   var committee_settings_string=JSON.stringify(committee_settings_current);
   Cookies.set('committee_settings', ''+committee_settings_string+'', { expires: 14 });
 
