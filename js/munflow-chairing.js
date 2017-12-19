@@ -84,31 +84,56 @@ function showRollCall() {
 }
 }
 
-function markAbsent(value,current_status) {
+function markAbsent(key,current_status) {
   var committee_settings_current=JSON.parse(committee_settings);
   console.log(value);
-  committee_settings_current["delegations"][value]['present']=false;
-  committee_settings_current["delegations"][value]['may_abstain']=false;
+  committee_settings_current["delegations"][key]['present']=false;
+  committee_settings_current["delegations"][key]['may_abstain']=false;
   var committee_settings_string=JSON.stringify(committee_settings_current);
   Cookies.set('committee_settings', ''+committee_settings_string+'', { expires: 14 });
+  if (current_status=="present") {
+    $('#country-'+ key +' .rollcall-present').removeClass('rollcall-filled');
+    $('#country-'+ key +' .rollcall-absent').addClass('rollcall-filled');
+  } else  {
+    $('#country-'+ key +' .rollcall-pv').removeClass('rollcall-filled');
+    $('#country-'+ key +' .rollcall-absent').addClass('rollcall-filled');
+  }
 
 }
 
-function markPresent(value,current_status) {
+function markPresent(key,current_status) {
   var committee_settings_current=JSON.parse(committee_settings);
   console.log(value);
-  committee_settings_current["delegations"][value]['present']=true;
-  committee_settings_current["delegations"][value]['may_abstain']=true;
+  committee_settings_current["delegations"][key]['present']=true;
+  committee_settings_current["delegations"][key]['may_abstain']=true;
   var committee_settings_string=JSON.stringify(committee_settings_current);
   Cookies.set('committee_settings', ''+committee_settings_string+'', { expires: 14 });
+
+  if (current_status=="absent") {
+    $('#country-'+ key +' .rollcall-absent').removeClass('rollcall-filled');
+    $('#country-'+ key +' .rollcall-present').addClass('rollcall-filled');
+  } else  {
+    $('#country-'+ key +' .rollcall-pv').removeClass('rollcall-filled');
+    $('#country-'+ key +' .rollcall-present').addClass('rollcall-filled');
+  }
 
 
 }
 
-function markPresentVoting(value,current_status) {
+function markPresentVoting(key,current_status) {
   var committee_settings_current=JSON.parse(committee_settings);
-  committee_settings_current["delegations"][value]['present']=true;
-    committee_settings_current["delegations"][value]['may_abstain']=false;
+  committee_settings_current["delegations"][key]['present']=true;
+    committee_settings_current["delegations"]key]['may_abstain']=false;
   var committee_settings_string=JSON.stringify(committee_settings_current);
   Cookies.set('committee_settings', ''+committee_settings_string+'', { expires: 14 });
+
+  if (current_status=="absent") {
+    $('#country-'+ key +' .rollcall-absent').removeClass('rollcall-filled');
+    $('#country-'+ key +' .rollcall-pv').addClass('rollcall-filled');
+  } else  {
+    $('#country-'+ key +' .rollcall-present').removeClass('rollcall-filled');
+    $('#country-'+ key +' .rollcall-pv').addClass('rollcall-filled');
+
+  }
+
 }
