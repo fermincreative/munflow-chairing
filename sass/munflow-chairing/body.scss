@@ -53,7 +53,8 @@
   }
   .rollcall-country {
     margin-top: 10px;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $darkblue;
   }
   button.rollcall-standard {
     border: 1px solid $darkblue;

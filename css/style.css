@@ -46,7 +46,8 @@ header#masthead {
   font-size: 1.25em; }
 #rollcall-list .rollcall-country {
   margin-top: 10px;
-  margin-bottom: 10px; }
+  padding-bottom: 10px;
+  border-bottom: 1px solid #004672; }
 #rollcall-list button.rollcall-standard {
   border: 1px solid #004672;
   background-color: #fff;
