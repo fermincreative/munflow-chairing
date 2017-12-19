@@ -151,7 +151,7 @@ function markPresentVoting(key,current_status) {
 }
 
 // Load list of countries that is present;
-function showCountriesPresent() {
+function showCountriesPresentGSR() {
     var committee_settings=Cookies.get('committee_settings');
     var committee_settings_parsed=JSON.parse(committee_settings);
     var committee_members=committee_settings_parsed["delegations"];
@@ -159,7 +159,6 @@ function showCountriesPresent() {
     Object.keys(committee_members).forEach(key => {
       if (committee_members[key]["present"]==true) {
         $('#gsr-countrylist').append("<div id=\"gsr-countrylist-country-"+key+"\" onclick=\"addCountryGSR("+key+")\"><p>"+committee_members[key]['name']+"</p></div>");
-
       }
     });
 }
@@ -167,10 +166,22 @@ function showCountriesPresent() {
 //Add a country to the GSR.
 function addCountryGSR(key) {
   var gsr=Cookies.get('gsr');
+  var committee_settings=Cookies.get('committee_settings';)
+  var committee_settings_parsed=JSON.parse(committee_settings);
   if (gsr === undefined) {
-
+    var gsr=[];
+    gsr.push(key);
+    var gsr_string=JSON.stringify(gsr);
+    Cookies.set('gsr',''+gsr_string+'',{ expires: 14 });
   } else {
-    
+    var gsr_parsed=JSON.parse(gsr);
+    gsr_parsed.push(key);
+    var gsr_string=JSON.stringify(gsr_parsed);
+    Cookies.set('gsr',''+gsr_string+'',{ expires: 14 });
   }
+
+}
+
+function removeCountryGSR(key){
 
 }
