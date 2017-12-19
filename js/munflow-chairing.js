@@ -58,6 +58,8 @@ $("#committee-settings #save").click(function(e){
   }
 });
 
+// Make a list of countries for roll call
+
 function showRollCall() {
   if (committee_settings === undefined) {
   } else {
@@ -84,7 +86,9 @@ function showRollCall() {
 }
 }
 
+// Functions for roll call. Mark a country absent, present or present and voting and make it visual.
 function markAbsent(key,current_status) {
+  var committee_settings=Cookies.get('committee_settings');
   var committee_settings_current=JSON.parse(committee_settings);
   committee_settings_current["delegations"][key]['present']=false;
   committee_settings_current["delegations"][key]['may_abstain']=false;
@@ -104,6 +108,7 @@ function markAbsent(key,current_status) {
 }
 
 function markPresent(key,current_status) {
+  var committee_settings=Cookies.get('committee_settings');
   var committee_settings_current=JSON.parse(committee_settings);
   committee_settings_current["delegations"][key]['present']=true;
   committee_settings_current["delegations"][key]['may_abstain']=true;
@@ -125,6 +130,7 @@ function markPresent(key,current_status) {
 }
 
 function markPresentVoting(key,current_status) {
+  var committee_settings=Cookies.get('committee_settings');
   var committee_settings_current=JSON.parse(committee_settings);
   committee_settings_current["delegations"][key]['present']=true;
     committee_settings_current["delegations"][key]['may_abstain']=false;
@@ -141,5 +147,30 @@ function markPresentVoting(key,current_status) {
   $('#country-'+ key +' .rollcall-absent').attr("onclick","markAbsent("+key+",'presentvoting')");
   $('#country-'+ key +' .rollcall-present').attr("onclick","markPresent("+key+",'presentvoting')");
   $('#country-'+ key +' .rollcall-pv').attr("onclick",null);
+
+}
+
+// Load list of countries that is present;
+function showCountriesPresent() {
+    var committee_settings=Cookies.get('committee_settings');
+    var committee_settings_parsed=JSON.parse(committee_settings);
+    var committee_members=committee_settings_parsed["delegations"];
+    console.log(committee_members);
+    Object.keys(committee_members).forEach(key => {
+      if (committee_members[key]["present"]==true) {
+        $('#gsr-countrylist').append("<div id=\"gsr-countrylist-country-"+key+"\" onclick=\"addCountryGSR("+key+")\"><p>"+committee_members[key]['name']+"</p></div>");
+
+      }
+    });
+}
+
+//Add a country to the GSR.
+function addCountryGSR(key) {
+  var gsr=Cookies.get('gsr');
+  if (gsr === undefined) {
+
+  } else {
+    
+  }
 
 }
