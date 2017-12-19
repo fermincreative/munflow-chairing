@@ -44,6 +44,9 @@ header#masthead {
 
 #rollcall-list h3.country {
   font-size: 1.25em; }
+#rollcall-list .rollcall-country {
+  margin-top: 10px;
+  margin-bottom: 10px; }
 #rollcall-list button.rollcall-standard {
   border: 1px solid #004672;
   background-color: #fff;
@@ -53,3 +56,5 @@ header#masthead {
 #rollcall-list button.rollcall-filled {
   background-color: #004672;
   color: #fff; }
+
+/*# sourceMappingURL=style.css.map */
