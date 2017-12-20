@@ -211,3 +211,10 @@ function showGSR(){
 
   }
 }
+
+function GSRTimer() {
+  var minutes=00;
+  var seconds=00;
+
+
+}
