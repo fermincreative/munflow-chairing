@@ -210,12 +210,38 @@ function showGSR(){
   }
 }
 
-function GSRTimer() {
+function GSRTimer(action) {
+
+  var Interval=0;
+
+  if (action=='show') {
   var time = new Date();
-  var seconds=0;
-  var minutes=0;
+  seconds=0;
+  minutes=0;
   $('#gsr-timer').append('0'+minutes+':0'+seconds+'');
+  }
 
-  
+  if (action=='start') {
+     GSRTimerStart();
+  }
 
+  function GSRTimerStart() {
+    Interval=setInterval(GSRTimerRunning,1000);
+  }
+
+  function GSRTimerRunning() {
+    seconds++;
+    if (seconds >= 60) {
+      minutes++;
+      seconds=0;
+    }
+    if (seconds < 10) {
+    $('#gsr-timer').html('0'+minutes+':0'+seconds+'');
+    } else if (minutes < 10) {
+    $('#gsr-timer').html('0'+minutes+':'+seconds+'');
+    } else {
+    $('#gsr-timer').html(''+minutes+':'+seconds+'');
+    }
+
+  }
 }
