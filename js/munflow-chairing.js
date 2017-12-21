@@ -211,7 +211,6 @@ function showGSR(){
 }
 
 function GSRTimer(action) {
-
   var Interval=0;
 
   if (action=='show') {
@@ -222,12 +221,15 @@ function GSRTimer(action) {
   }
 
   if (action=='start') {
-     GSRTimerStart();
+     Interval=setInterval(GSRTimerRunning,1000);
   }
 
-  function GSRTimerStart() {
-    Interval=setInterval(GSRTimerRunning,1000);
+  if (action=='pause') {
+     Interval=clearInterval(GSRTimerRunning);
   }
+
+
+
 
   function GSRTimerRunning() {
     seconds++;
