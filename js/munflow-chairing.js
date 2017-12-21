@@ -190,8 +190,6 @@ function removeCountryGSR(key){
 }
 
 function currentSpeakerGSR() {
-  var time = new Date();
-  console.log(time);
 }
 
 function showGSR(){
@@ -213,8 +211,11 @@ function showGSR(){
 }
 
 function GSRTimer() {
-  var minutes=00;
-  var seconds=00;
+  var time = new Date();
+  var seconds=0;
+  var minutes=0;
+  $('#gsr-timer').append('0'+minutes+':0'+seconds+'');
 
+  
 
 }
