@@ -211,7 +211,6 @@ function showGSR(){
 }
 
 function GSRTimer(action) {
-  var Interval=0;
 
   if (action=='show') {
   var time = new Date();
@@ -221,15 +220,14 @@ function GSRTimer(action) {
   }
 
   if (action=='start') {
-     Interval=setInterval(GSRTimerRunning,1000);
+     IntervalID=setInterval(GSRTimerRunning,1000);
   }
 
-  if (action=='pause') {
-     Interval=clearInterval(GSRTimerRunning);
+  else if (action=='pause') {
+     Interval=clearInterval(IntervalID);
+     Interval=0;
+     console.log(Interval);
   }
-
-
-
 
   function GSRTimerRunning() {
     seconds++;
