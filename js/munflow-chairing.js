@@ -216,7 +216,7 @@ function GSRTimer(action) {
   var time = new Date();
   seconds=0;
   minutes=0;
-  $('#gsr-timer').append('0'+minutes+':0'+seconds+'');
+  $('#gsr-timer').append('<h2>0'+minutes+':0'+seconds+'</h2>');
   }
 
   if (action=='start') {
