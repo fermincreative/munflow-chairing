@@ -58,4 +58,12 @@ header#masthead {
   background-color: #004672;
   color: #fff; }
 
+#debate .btn-start, #debate .btn-pause, #debate .btn-next {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: 1px solid #004672;
+  background-color: #fff;
+  font-size: 2em;
+  padding: 7px 15px; }
+
 /*# sourceMappingURL=style.css.map */

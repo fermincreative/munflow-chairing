@@ -68,3 +68,14 @@
     color: $white;
   }
 }
+
+#debate {
+  .btn-start, .btn-pause, .btn-next {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: 1px solid $darkblue;
+    background-color: $white;
+    font-size: 2em;
+    padding: 7px 15px;
+  }
+}
