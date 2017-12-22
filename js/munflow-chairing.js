@@ -221,12 +221,13 @@ function GSRTimer(action) {
 
   if (action=='start') {
      IntervalID=setInterval(GSRTimerRunning,1000);
+     $('#gsr-timer-buttons .btn-start').attr('onclick',null);
   }
 
   else if (action=='pause') {
      Interval=clearInterval(IntervalID);
      Interval=0;
-     console.log(Interval);
+     $('#gsr-timer-buttons .btn-pause').attr('onclick',null);
   }
 
   function GSRTimerRunning() {
@@ -236,11 +237,11 @@ function GSRTimer(action) {
       seconds=0;
     }
     if (seconds < 10) {
-    $('#gsr-timer').html('0'+minutes+':0'+seconds+'');
+    $('#gsr-timer').html('<h2>0'+minutes+':0'+seconds+'</h2>');
     } else if (minutes < 10) {
-    $('#gsr-timer').html('0'+minutes+':'+seconds+'');
+    $('#gsr-timer').html('<h2>0'+minutes+':'+seconds+'</h2>');
     } else {
-    $('#gsr-timer').html(''+minutes+':'+seconds+'');
+    $('#gsr-timer').html('<h2>'+minutes+':'+seconds+'</h2>');
     }
 
   }
