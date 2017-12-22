@@ -213,7 +213,6 @@ function showGSR(){
 function GSRTimer(action,speaking_time) {
 
   if (action=='show') {
-  var time = new Date();
   seconds=0;
   minutes=0;
   $('#gsr-timer').append('<h2>0'+minutes+':0'+seconds+'</h2>');

@@ -66,5 +66,7 @@ header#masthead {
   color: #004672 !important;
   font-size: 2em;
   padding: 7px 15px; }
+#debate .progress, #debate .progress-bar {
+  height: 20px; }
 
 /*# sourceMappingURL=style.css.map */
