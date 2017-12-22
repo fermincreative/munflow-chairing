@@ -190,6 +190,19 @@ function removeCountryGSR(key){
 }
 
 function currentSpeakerGSR() {
+  var gsr=Cookies.get('gsr');
+  var committee_settings=Cookies.get('committee_settings');
+  var gsr=Cookies.get('gsr');
+  var committee_settings_parsed=JSON.parse(committee_settings);
+  if (gsr === undefined) {
+  }
+  else {
+    var gsr_parsed=JSON.parse(gsr);
+    var key_value=gsr_parsed[0];
+    $('#gsr-current-speaker').append("<h1>"+committee_settings_parsed['delegations'][key_value]['name']+"</h1>");
+
+  }
+
 }
 
 function showGSR(){
