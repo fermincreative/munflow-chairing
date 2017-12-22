@@ -228,6 +228,7 @@ function GSRTimer(action) {
      Interval=clearInterval(IntervalID);
      Interval=0;
      $('#gsr-timer-buttons .btn-pause').attr('onclick',null);
+     $('#gsr-timer-buttons .btn-start').attr("onclick","GSRTimer('start')");
   }
 
   function GSRTimerRunning() {
