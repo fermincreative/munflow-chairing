@@ -210,7 +210,7 @@ function showGSR(){
   }
 }
 
-function GSRTimer(action) {
+function GSRTimer(action,speaking_time) {
 
   if (action=='show') {
   var time = new Date();
