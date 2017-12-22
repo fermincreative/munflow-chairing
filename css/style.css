@@ -63,6 +63,7 @@ header#masthead {
   box-shadow: none;
   border: 1px solid #004672;
   background-color: #fff;
+  color: #004672 !important;
   font-size: 2em;
   padding: 7px 15px; }
 
