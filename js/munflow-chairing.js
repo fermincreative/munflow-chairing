@@ -157,7 +157,7 @@ function showCountriesPresentGSR() {
     var committee_settings=Cookies.get('committee_settings');
     var committee_settings_parsed=JSON.parse(committee_settings);
     var committee_members=committee_settings_parsed["delegations"];
-    console.log(committee_members);
+    $('gsr-countrylist').html();
     Object.keys(committee_members).forEach(key => {
       if (committee_members[key]["present"]==true) {
         $('#gsr-countrylist').append("<div id=\"gsr-countrylist-country-"+key+"\" onclick=\"addCountryGSR("+key+")\"><p>"+committee_members[key]['name']+"</p></div>");
