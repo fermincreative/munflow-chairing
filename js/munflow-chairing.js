@@ -107,6 +107,8 @@ function markAbsent(key,current_status) {
   $('#country-'+ key +' .rollcall-present').attr("onclick","markPresent("+key+",'absent')");
   $('#country-'+ key +' .rollcall-pv').attr("onclick","markPresentVoting("+key+",'absent')");
 
+  showCountriesPresentGSR();
+
 }
 
 function markPresent(key,current_status) {
@@ -127,6 +129,8 @@ function markPresent(key,current_status) {
   $('#country-'+ key +' .rollcall-absent').attr("onclick","markAbsent("+key+",'present')");
   $('#country-'+ key +' .rollcall-present').attr("onclick",null);
   $('#country-'+ key +' .rollcall-pv').attr("onclick","markPresentVoting("+key+",'present')");
+
+  showCountriesPresentGSR();
 
 
 }
@@ -150,6 +154,8 @@ function markPresentVoting(key,current_status) {
   $('#country-'+ key +' .rollcall-present').attr("onclick","markPresent("+key+",'presentvoting')");
   $('#country-'+ key +' .rollcall-pv').attr("onclick",null);
 
+  showCountriesPresentGSR();
+
 }
 
 // Load list of countries that is present;
@@ -157,7 +163,7 @@ function showCountriesPresentGSR() {
     var committee_settings=Cookies.get('committee_settings');
     var committee_settings_parsed=JSON.parse(committee_settings);
     var committee_members=committee_settings_parsed["delegations"];
-    $('gsr-countrylist').html();
+    $('#gsr-countrylist').empty();
     Object.keys(committee_members).forEach(key => {
       if (committee_members[key]["present"]==true) {
         $('#gsr-countrylist').append("<div id=\"gsr-countrylist-country-"+key+"\" onclick=\"addCountryGSR("+key+")\"><p>"+committee_members[key]['name']+"</p></div>");
