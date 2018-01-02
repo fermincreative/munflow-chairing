@@ -260,21 +260,29 @@ function GSRTimer(action,speaking_time) {
      minutes=0;
      IntervalID=setInterval(GSRTimerRunning,1000);
      $('#gsr-timer-buttons .btn-start').attr('onclick',null);
+     $('#gsr-timer-buttons .btn-start').addClass('.btn-grey');
      $('#gsr-timer').html('<h2>0'+minutes+':0'+seconds+' / '+max_minutes+':'+max_seconds+'</h2>');
+  }
+
+  else if (action=='resume') {
+    IntervalID=setInterval(GSRTimerRunning,1000);
+    $('#gsr-timer-buttons .btn-start').attr('onclick',null);
+    $('#gsr-timer-buttons .btn-start').addClass('.btn-grey');
+    $('#gsr-timer').html('<h2>0'+minutes+':0'+seconds+' / '+max_minutes+':'+max_seconds+'</h2>');
   }
 
   else if (action=='pause') {
      Interval=clearInterval(IntervalID);
      Interval=0;
      $('#gsr-timer-buttons .btn-pause').attr('onclick',null);
-     $('#gsr-timer-buttons .btn-start').attr("onclick","GSRTimer('start')");
+     $('#gsr-timer-buttons .btn-start').attr("onclick","GSRTimer('resume')");
   }
 
   else if (action=='next') {
     seconds=0;
     minutes=0;
-    IntervalID=setInterval(GSRTimerRunning,1000);
-    $('#gsr-timer-buttons .btn-start').attr('onclick',null);
+    Interval=clearInterval(IntervalID);
+    $('#gsr-timer-buttons .btn-start').attr('onclick',"GSRTimer('start')");
     $('#gsr-timer').html('<h2>0'+minutes+':0'+seconds+' / '+max_minutes+':'+max_seconds+'</h2>');
   }
 
