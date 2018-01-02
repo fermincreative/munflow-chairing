@@ -270,6 +270,14 @@ function GSRTimer(action,speaking_time) {
      $('#gsr-timer-buttons .btn-start').attr("onclick","GSRTimer('start')");
   }
 
+  else if (action=='next') {
+    seconds=0;
+    minutes=0;
+    IntervalID=setInterval(GSRTimerRunning,1000);
+    $('#gsr-timer-buttons .btn-start').attr('onclick',null);
+    $('#gsr-timer').html('<h2>0'+minutes+':0'+seconds+' / '+max_minutes+':'+max_seconds+'</h2>');
+  }
+
   function GSRTimerRunning() {
     seconds++;
     if (seconds >= 60) {
