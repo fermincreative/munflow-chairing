@@ -65,7 +65,18 @@ header#masthead {
   background-color: #fff;
   color: #004672 !important;
   font-size: 2em;
-  padding: 7px 15px; }
+  padding: 7px 15px;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  transition: 0.25s;
+  cursor: pointer; }
+#debate .btn-grey {
+  border: 1px solid #8f8f8f;
+  background-color: #fff !important;
+  color: #8f8f8f !important;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  transition: 0.25s; }
 #debate .progress, #debate .progress-bar {
   height: 20px; }
 

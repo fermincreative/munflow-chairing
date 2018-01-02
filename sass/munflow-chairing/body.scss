@@ -78,9 +78,22 @@
     color: $darkblue !important;
     font-size: 2em;
     padding: 7px 15px;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+
+  .btn-grey {
+    border: 1px solid $grey;
+    background-color: $white !important;
+    color: $grey !important;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    transition: 0.25s;
   }
 
   .progress, .progress-bar {
-    height: 20px;  
+    height: 20px;
   }
 }
