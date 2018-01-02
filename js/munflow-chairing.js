@@ -26,9 +26,11 @@ function addDelegation(delegation_count){
 $("#committee-settings #save").click(function(e){
   var committee_name = $('#CommitteeName').val();
   var delegation_count = $('#committee-settings #save').data('delegations');
+  var gsr_time = $('#CommitteeSpeakingTime').val();
   var delegations_entered=0;
   var committee_settings={};
   committee_settings["committee_name"]=committee_name;
+  committee_settings["gsr_time"]=gsr_time;
   committee_settings["delegations"]={};
   for (delegation = 1; delegation <= delegation_count; delegation++) {
       var delegation_value=$('#committee-settings .form-delegations #Delegation-'+delegation+'').val();
