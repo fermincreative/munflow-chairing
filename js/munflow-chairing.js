@@ -260,6 +260,7 @@ function GSRTimer(action,speaking_time) {
      minutes=0;
      IntervalID=setInterval(GSRTimerRunning,1000);
      $('#gsr-timer-buttons .btn-start').attr('onclick',null);
+     $('#gsr-timer').html('<h2>0'+minutes+':0'+seconds+' / '+max_minutes+':'+max_seconds+'</h2>');
   }
 
   else if (action=='pause') {
@@ -276,11 +277,11 @@ function GSRTimer(action,speaking_time) {
       seconds=0;
     }
     if (seconds < 10) {
-    $('#gsr-timer').html('<h2>0'+minutes+':0'+seconds+'/ '+max_minutes+':'+max_seconds+'</h2>');
+    $('#gsr-timer').html('<h2>0'+minutes+':0'+seconds+' / '+max_minutes+':'+max_seconds+'</h2>');
     } else if (minutes < 10) {
-    $('#gsr-timer').html('<h2>0'+minutes+':'+seconds+'/ '+max_minutes+':'+max_seconds+'</h2>');
+    $('#gsr-timer').html('<h2>0'+minutes+':'+seconds+' / '+max_minutes+':'+max_seconds+'</h2>');
     } else {
-    $('#gsr-timer').html('<h2>'+minutes+':'+seconds+'/ '+max_minutes+':'+max_seconds+'</h2>');
+    $('#gsr-timer').html('<h2>'+minutes+':'+seconds+' / '+max_minutes+':'+max_seconds+'</h2>');
     }
     if (minutes >= max_minutes && seconds >= max_seconds ) {
       Interval=clearInterval(IntervalID);
