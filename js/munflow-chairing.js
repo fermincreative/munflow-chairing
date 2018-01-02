@@ -233,7 +233,17 @@ function showGSR(){
 
 function GSRTimer(action,speaking_time) {
   var committee_settings=Cookies.get('committee_settings');
-    var committee_settings_parsed=JSON.parse(committee_settings);
+  var committee_settings_parsed=JSON.parse(committee_settings);
+  var committee_speaking_time=committee_settings_parsed["gsr_time"];
+  var committee_speaking_time_length=committee_settings_parsed["gsr_time"].length;
+  if (committee_speaking_time_length=== 3) {
+  var max_minutes=committee_speaking_time.toString()[0];
+  var max_seconds=committee_speaking_time.toString()[1] + committee_speaking_time.toString()[2];
+  } else if (committee_speaking_time_length === 4 ) {
+    var max_minutes=committee_speaking_time.toString()[0] + committee_speaking_time.toString()[1];
+    var max_seconds=committee_speaking_time.toString()[2] + committee_speaking_time.toString()[3];
+
+  }
 
   if (action=='show') {
   seconds=0;
@@ -241,7 +251,7 @@ function GSRTimer(action,speaking_time) {
   if (committee_settings_parsed["gsr_time"] === undefined) {
   $('#gsr-timer').append('<h2>0'+minutes+':0'+seconds+'</h2>');
   } else {
-  $('#gsr-timer').append('<h2>0'+minutes+':0'+seconds+' / '+committee_settings_parsed["gsr_time"]+'</h2>');
+  $('#gsr-timer').append('<h2>0'+minutes+':0'+seconds+' / '+max_minutes+':'+max_seconds+'</h2>');
   }
   }
 
