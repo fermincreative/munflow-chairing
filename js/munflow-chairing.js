@@ -256,6 +256,8 @@ function GSRTimer(action,speaking_time) {
   }
 
   if (action=='start') {
+     seconds=0;
+     minutes=0;
      IntervalID=setInterval(GSRTimerRunning,1000);
      $('#gsr-timer-buttons .btn-start').attr('onclick',null);
   }
@@ -279,6 +281,11 @@ function GSRTimer(action,speaking_time) {
     $('#gsr-timer').html('<h2>0'+minutes+':'+seconds+'</h2>');
     } else {
     $('#gsr-timer').html('<h2>'+minutes+':'+seconds+'</h2>');
+    }
+    if (minutes >= max_minutes && seconds >= max_seconds ) {
+      Interval=clearInterval(IntervalID);
+      $('#gsr-timer-buttons .btn-pause').attr('onclick',null);
+      $('#gsr-timer-buttons .btn-start').attr("onclick","GSRTimer('start')");
     }
 
   }
