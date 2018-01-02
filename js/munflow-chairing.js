@@ -232,11 +232,17 @@ function showGSR(){
 }
 
 function GSRTimer(action,speaking_time) {
+  var committee_settings=Cookies.get('committee_settings');
+    var committee_settings_parsed=JSON.parse(committee_settings);
 
   if (action=='show') {
   seconds=0;
   minutes=0;
+  if (committee_settings_parsed["gsr_time"] === undefined) {
   $('#gsr-timer').append('<h2>0'+minutes+':0'+seconds+'</h2>');
+  } else {
+  $('#gsr-timer').append('<h2>0'+minutes+':0'+seconds+' / '+committee_settings_parsed["gsr_time"]+'</h2>');
+  }
   }
 
   if (action=='start') {
