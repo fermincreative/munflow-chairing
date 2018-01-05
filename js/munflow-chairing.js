@@ -32,13 +32,19 @@ $("#committee-settings #save").click(function(e){
   committee_settings["committee_name"]=committee_name;
   committee_settings["gsr_time"]=gsr_time;
   committee_settings["delegations"]={};
+  committee_countries=[];
   for (delegation = 1; delegation <= delegation_count; delegation++) {
       var delegation_value=$('#committee-settings .form-delegations #Delegation-'+delegation+'').val();
-      if (delegation_value === '') {
+      committee_countries.push(''+delegation_value+'');
+  }
+  committee_countries.sort();
+  committee_countries.forEach(function(entry) {
+
+      if (entry === '') {
 
       } else {
         committee_settings["delegations"][''+delegations_entered+'']={
-          name: delegation_value,
+          name: entry,
           present: false,
           may_abstain: false,
           voting_status: 'none',
@@ -49,10 +55,11 @@ $("#committee-settings #save").click(function(e){
 
       }
 
-  }
+  });
 
   var committee_settings_string=JSON.stringify(committee_settings);
   console.log(committee_settings_string);
+
   if (committee_settings === undefined) {
   } else {
   Cookies.set('committee_settings', ''+committee_settings_string+'', { expires: 14 });
