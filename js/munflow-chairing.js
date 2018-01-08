@@ -195,9 +195,13 @@ function addCountryGSR(key) {
     var gsr_string=JSON.stringify(gsr_parsed);
     Cookies.set('gsr',''+gsr_string+'',{ expires: 14 });
   }
+  committee_settings_parsed["delegations"][key]['in_gsr']=true;
+  var committee_settings_string=JSON.stringify(committee_settings_parsed);
+  Cookies.set('committee_settings', ''+committee_settings_string+'', { expires: 14 });
   $('#gsr').append("<div id=\"gsr-list-"+key+"\"class=\"gsr-country\"><p>"+committee_settings_parsed['delegations'][key]['name']+"</p></div>");
   $("#gsr-countrylist-country-"+key+"").attr('onclick',null);
   $("#gsr-countrylist-country-"+key+"").addClass('country-in-gsr');
+  currentSpeakerGSR();
 
 }
 
