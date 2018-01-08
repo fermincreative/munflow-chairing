@@ -58,26 +58,39 @@ header#masthead {
   background-color: #004672;
   color: #fff; }
 
-#debate .btn-start, #debate .btn-pause, #debate .btn-next {
-  -webkit-appearance: none;
-  box-shadow: none;
-  border: 1px solid #004672;
-  background-color: #fff;
-  color: #004672 !important;
-  font-size: 2em;
-  padding: 7px 15px;
-  -webkit-transition: 0.25s;
-  -moz-transition: 0.25s;
-  transition: 0.25s;
-  cursor: pointer; }
-#debate .btn-grey {
-  border: 1px solid #8f8f8f;
-  background-color: #fff !important;
-  color: #8f8f8f !important;
-  -webkit-transition: 0.25s;
-  -moz-transition: 0.25s;
-  transition: 0.25s; }
-#debate .progress, #debate .progress-bar {
-  height: 20px; }
+#debate {
+  /* GSR */ }
+  #debate .btn-start, #debate .btn-pause, #debate .btn-next {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: 1px solid #004672;
+    background-color: #fff;
+    color: #004672 !important;
+    font-size: 2em;
+    padding: 7px 15px;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    transition: 0.25s;
+    cursor: pointer; }
+  #debate .btn-grey {
+    border: 1px solid #8f8f8f;
+    background-color: #fff !important;
+    color: #8f8f8f !important;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    transition: 0.25s; }
+  #debate .progress, #debate .progress-bar {
+    height: 20px; }
+  #debate .country-in-gsr p {
+    opacity: 0.5; }
+  #debate .country-in-gsr p:after {
+    content: "\f00c";
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: #000;
+    font-size: 18px;
+    padding-left: 15px; }
 
 /*# sourceMappingURL=style.css.map */
