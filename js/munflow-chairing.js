@@ -176,6 +176,10 @@ function showCountriesPresentGSR() {
       if (committee_members[key]["present"]==true) {
         $('#gsr-countrylist').append("<div id=\"gsr-countrylist-country-"+key+"\" onclick=\"addCountryGSR("+key+")\"><p>"+committee_members[key]['name']+"</p></div>");
       }
+      if (committee_members[key]["in_gsr"]==true) {
+        $("#gsr-countrylist-country-"+key+"").addClass('country-in-gsr');
+        $("#gsr-countrylist-country-"+key+"").attr('onclick',null);
+      }
     });
 }
 
@@ -219,7 +223,7 @@ function currentSpeakerGSR() {
   else {
     var gsr_parsed=JSON.parse(gsr);
     var key_value=gsr_parsed[0];
-    $('#gsr-current-speaker').append("<h1>"+committee_settings_parsed['delegations'][key_value]['name']+"</h1>");
+    $('#gsr-current-speaker').html("<h1>"+committee_settings_parsed['delegations'][key_value]['name']+"</h1>");
 
   }
 
