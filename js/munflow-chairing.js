@@ -46,6 +46,7 @@ $("#committee-settings #save").click(function(e){
         committee_settings["delegations"][''+delegations_entered+'']={
           name: entry,
           present: false,
+          in_gsr: false,
           may_abstain: false,
           voting_status: 'none',
           has_passed: false,
