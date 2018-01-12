@@ -264,6 +264,7 @@ function GSRTimer(action,speaking_time) {
   if (action=='show') {
   seconds=0;
   minutes=0;
+  IntervalID=0;
   if (committee_settings_parsed["gsr_time"] === undefined) {
   $('#gsr-timer').append('<h2>0'+minutes+':0'+seconds+'</h2>');
   } else {
@@ -298,11 +299,36 @@ function GSRTimer(action,speaking_time) {
   }
 
   else if (action=='next') {
+    // Pause Timer
     seconds=0;
     minutes=0;
-    Interval=clearInterval(IntervalID);
+    // Clear Interval -> Issue!
+    if (IntervalID === undefined) {
+    console.log('Interval is undefined!');
+    } else {
+      Interval=clearInterval(IntervalID);
+    }
+    // Update Timer
     $('#gsr-timer-buttons .btn-start').attr('onclick',"GSRTimer('start')");
     $('#gsr-timer').html('<h2>0'+minutes+':0'+seconds+' / '+max_minutes+':'+max_seconds+'</h2>');
+
+    var gsr=Cookies.get('gsr');
+    var gsr_parsed=JSON.parse(gsr);
+    console.log(gsr_parsed);
+    // Get information on new speaker
+    var current_speaker=gsr_parsed[0];
+    var next_speaker=gsr_parsed[1];
+    $("#gsr-countrylist-country-"+current_speaker+"").attr("onclick","addCountryGSR("+current_speaker+")");
+    $("#gsr-countrylist-country-"+current_speaker+"").removeClass('country-in-gsr');
+
+
+    // Unset first one.
+    gsr_parsed.splice(0,0);
+    console.log(gsr_parsed);
+
+    // Move all GSR members one position forward.
+
+
   }
 
   function GSRTimerRunning() {
