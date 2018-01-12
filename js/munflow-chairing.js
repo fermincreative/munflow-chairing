@@ -241,8 +241,14 @@ function showGSR(){
     var gsr_parsed=JSON.parse(gsr);
     console.log(gsr_parsed);
     for (var key in gsr_parsed) {
+    if (key == 0) {
+    } else {
     var key_value=gsr_parsed[key];
     $('#gsr').append("<div id=\"gsr-"+key+"\"><p>"+committee_settings_parsed['delegations'][key_value]['name']+"</p></div>");
+    }
+  }
+  if ($('#gsr').is(':empty')){
+    $('#gsr').html('There are no other speakers on the list.');
   }
 
   }
