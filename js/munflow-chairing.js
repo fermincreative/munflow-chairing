@@ -237,6 +237,7 @@ function showGSR(){
   if (gsr === undefined) {
   }
   else {
+    $('#gsr').html('');
     var gsr_parsed=JSON.parse(gsr);
     console.log(gsr_parsed);
     for (var key in gsr_parsed) {
@@ -320,15 +321,18 @@ function GSRTimer(action,speaking_time) {
     var next_speaker=gsr_parsed[1];
     $("#gsr-countrylist-country-"+current_speaker+"").attr("onclick","addCountryGSR("+current_speaker+")");
     $("#gsr-countrylist-country-"+current_speaker+"").removeClass('country-in-gsr');
+    committee_settings_parsed["delegations"][current_speaker]['in_gsr']=false;
 
 
     // Unset first one.
-    gsr_parsed.splice(0,0);
-    console.log(gsr_parsed);
-
-    // Move all GSR members one position forward.
-
-
+    gsr_parsed.splice(0,1);
+    var committee_settings_string=JSON.stringify(committee_settings_parsed);
+    var gsr_string=JSON.stringify(gsr_parsed);
+    console.log(gsr_string);
+    Cookies.set('gsr', ''+gsr_string+'', { expires: 14 });
+    Cookies.set('committee_settings', ''+committee_settings_string+'', { expires: 14 });
+    showGSR();
+    currentSpeakerGSR();
   }
 
   function GSRTimerRunning() {
