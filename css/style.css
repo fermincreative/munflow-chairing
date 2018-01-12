@@ -72,6 +72,8 @@ header#masthead {
     -moz-transition: 0.25s;
     transition: 0.25s;
     cursor: pointer; }
+  #debate .debatepane {
+    padding-top: 50px; }
   #debate .btn-grey {
     border: 1px solid #8f8f8f;
     background-color: #fff !important;
