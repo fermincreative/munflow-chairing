@@ -95,6 +95,9 @@
 
   .progress, .progress-bar {
     height: 20px;
+    -webkit-transition: 1s linear;
+    -moz-transition: 1s linear;
+    transition: 1s linear;
   }
 
   /* GSR */

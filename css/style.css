@@ -80,7 +80,10 @@ header#masthead {
     -moz-transition: 0.25s;
     transition: 0.25s; }
   #debate .progress, #debate .progress-bar {
-    height: 20px; }
+    height: 20px;
+    -webkit-transition: 1s linear;
+    -moz-transition: 1s linear;
+    transition: 1s linear; }
   #debate .country-in-gsr p {
     opacity: 0.5; }
   #debate .country-in-gsr p:after {
