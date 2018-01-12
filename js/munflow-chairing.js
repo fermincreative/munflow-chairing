@@ -354,6 +354,13 @@ function GSRTimer(action,speaking_time) {
     } else {
     $('#gsr-timer').html('<h2>'+minutes+':'+seconds+' / '+max_minutes+':'+max_seconds+'</h2>');
     }
+
+    var total_time=Number(max_minutes)+(Number(max_seconds)/60);
+    current_percentage=((minutes+(seconds/60))/total_time)*100;
+    $('#gsr-progress .progress-bar').attr('aria-valuenow',current_percentage.toPrecision(4)).css('width',''+current_percentage.toPrecision(4)+'%');
+
+
+
     if (minutes >= max_minutes && seconds >= max_seconds ) {
       Interval=clearInterval(IntervalID);
       $('#gsr-timer-buttons .btn-pause').attr('onclick',null);
