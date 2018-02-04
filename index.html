@@ -220,11 +220,17 @@
                   <h3>Delegations</h3>
                   <p>Enter your delegations below</p>
                   <div class="form-group form-delegations">
-                    <input type="text" class="form-control" id="Delegation-1" data-delegation-number="1" placeholder="Delegation 1">
-                    <input type="text" class="form-control" id="Delegation-2" data-delegation-number="2" placeholder="Delegation 2">
-                    <input type="text" class="form-control" id="Delegation-3" data-delegation-number="3" placeholder="Delegation 3">
+                    <input type="text" class="form-control delegationfield" id="Delegation-1" data-delegation-number="1" placeholder="Delegation 1">
+                    <input type="text" class="form-control delegationfield" id="Delegation-2" data-delegation-number="2" placeholder="Delegation 2">
+                    <input type="text" class="form-control delegationfield" id="Delegation-3" data-delegation-number="3" placeholder="Delegation 3">
                   </div>
                     <button id="add-delegation" type="button" class="btn btn-info" onclick="addDelegation(3)"><i class="fas fa-plus-circle"></i>Add another delegation</button>
+
+                    <script> $( function() {
+                      $( ".delegationfield" ).autocomplete({
+                         source: countries
+                       });
+                    } );</script>
 
                 </div>
 

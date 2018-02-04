@@ -18,9 +18,13 @@ if (committee_settings === undefined) {
 
 function addDelegation(delegation_count){
   var new_delegation_count=delegation_count+1;
-  $('#SetupModal #delegation-list .form-delegations').append('<input type="text" class="form-control" id="Delegation-'+new_delegation_count+'" data-delegation-number="'+new_delegation_count+'" placeholder="Delegation '+new_delegation_count+'">');
+  $('#SetupModal #delegation-list .form-delegations').append('<input type="text" class="form-control delegationfield" id="Delegation-'+new_delegation_count+'" data-delegation-number="'+new_delegation_count+'" placeholder="Delegation '+new_delegation_count+'">');
   $('#SetupModal #add-delegation').attr('onclick','addDelegation('+new_delegation_count+')');
   $('#committee-settings #save').data('delegations',new_delegation_count);
+
+  $( ".delegationfield" ).autocomplete({
+     source: countries
+   });
 };
 
 $("#committee-settings #save").click(function(e){
