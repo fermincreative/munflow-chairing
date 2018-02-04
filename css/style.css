@@ -98,4 +98,5 @@ header#masthead {
     font-size: 18px;
     padding-left: 15px; }
 
-/*# sourceMappingURL=style.css.map */
+.ui-widget.ui-widget-content {
+  z-index: 9999; }
