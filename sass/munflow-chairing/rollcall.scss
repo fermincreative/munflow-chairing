@@ -2,9 +2,31 @@
   display: inline-block;
   float: left;
   padding-right: 10px;
-  width: 32px;
   img {
     height: 24px;
     width: 32px;
+  }
+}
+
+#rollcall-list {
+  h3.country {
+    font-size: 1.25em;
+  }
+  .rollcall-country {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $darkblue;
+    font-weight: 900;
+  }
+  button.rollcall-standard {
+    border: 1px solid $darkblue;
+    background-color: $white;
+    height: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  button.rollcall-filled{
+    background-color: $darkblue;
+    color: $white;
   }
 }

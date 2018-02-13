@@ -47,28 +47,6 @@
 }
 
 
-#rollcall-list {
-  h3.country {
-    font-size: 1.25em;
-  }
-  .rollcall-country {
-    margin-top: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid $darkblue;
-  }
-  button.rollcall-standard {
-    border: 1px solid $darkblue;
-    background-color: $white;
-    height: 30px;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-  button.rollcall-filled{
-    background-color: $darkblue;
-    color: $white;
-  }
-}
-
 #debate {
   .btn-start, .btn-pause, .btn-next {
     -webkit-appearance: none;

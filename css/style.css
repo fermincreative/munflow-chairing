@@ -42,22 +42,6 @@ header#masthead {
 .content-hidden {
   display: none; }
 
-#rollcall-list h3.country {
-  font-size: 1.25em; }
-#rollcall-list .rollcall-country {
-  margin-top: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #004672; }
-#rollcall-list button.rollcall-standard {
-  border: 1px solid #004672;
-  background-color: #fff;
-  height: 30px;
-  margin-left: 5px;
-  margin-right: 5px; }
-#rollcall-list button.rollcall-filled {
-  background-color: #004672;
-  color: #fff; }
-
 #debate {
   /* GSR */ }
   #debate .btn-start, #debate .btn-pause, #debate .btn-next {
@@ -100,3 +84,30 @@ header#masthead {
 
 .ui-widget.ui-widget-content {
   z-index: 9999; }
+
+.rollcall-flag {
+  display: inline-block;
+  float: left;
+  padding-right: 10px; }
+  .rollcall-flag img {
+    height: 24px;
+    width: 32px; }
+
+#rollcall-list h3.country {
+  font-size: 1.25em; }
+#rollcall-list .rollcall-country {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #004672;
+  font-weight: 900; }
+#rollcall-list button.rollcall-standard {
+  border: 1px solid #004672;
+  background-color: #fff;
+  height: 30px;
+  margin-left: 5px;
+  margin-right: 5px; }
+#rollcall-list button.rollcall-filled {
+  background-color: #004672;
+  color: #fff; }
+
+/*# sourceMappingURL=style.css.map */
