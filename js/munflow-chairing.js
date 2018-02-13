@@ -61,7 +61,7 @@ $("#committee-settings #save").click(function(e){
           voting_status: 'none',
           has_passed: false,
           speaking_time: 0,
-          flag: flag,
+          flag: '/flags/4x3/'+ flag +'',
         };
         delegations_entered++;
         } else {
