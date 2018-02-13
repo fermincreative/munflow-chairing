@@ -47,6 +47,12 @@ $("#committee-settings #save").click(function(e){
       if (entry === '') {
 
       } else {
+        for (var key in countries) {
+            if (countries[key]["label"]==entry) {
+              var flag=countries[key]["flag"];
+            }
+        }
+        if (flag) {
         committee_settings["delegations"][''+delegations_entered+'']={
           name: entry,
           present: false,
@@ -55,8 +61,21 @@ $("#committee-settings #save").click(function(e){
           voting_status: 'none',
           has_passed: false,
           speaking_time: 0,
+          flag: flag,
         };
         delegations_entered++;
+        } else {
+          committee_settings["delegations"][''+delegations_entered+'']={
+            name: entry,
+            present: false,
+            in_gsr: false,
+            may_abstain: false,
+            voting_status: 'none',
+            has_passed: false,
+            speaking_time: 0,
+          };
+          delegations_entered++;
+        }
 
       }
 
