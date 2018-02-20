@@ -92,87 +92,90 @@
         </div>
         <div class="row">
           <div class="col-12">
-          <ul class="nav nav-pills nav-justified">
+          <ul class="nav nav-pills nav-justified" id="DebateTabs" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" href="#gsr">General Speakers List</a>
+              <a class="nav-link active" href="#gsr" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">General Speakers List</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#mod">Moderated Caucus</a>
+              <a class="nav-link" data-toggle="tab" href="#mod" role="tab" aria-controls="mod" aria-selected="true">Moderated Caucus</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#unmod">Unmoderated Caucus</a>
+              <a class="nav-link" data-toggle="tab" href="#unmod" role="tab" aria-controls="unmod" aria-selected="true">Unmoderated Caucus</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#singlesp">Single Speaker</a>
+              <a class="nav-link" data-toggle="tab" href="#singlesp" role="tab" aria-controls="singlesp" aria-selected="true">Single Speaker</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#secondarysr">Secondary Speakers List</a>
+              <a class="nav-link" data-toggle="tab" href="#secondarysr" role="tab" aria-controls="#econdarysr" aria-selected="true">Secondary Speakers List</a>
             </li>
           </ul>
         </div>
         </div>
-        <div id="gsr" class="row debatepane">
-          <div class="col-6 text-center">
-            <div id="gsr-current-speaker">
-            <script>
-            $( document ).ready(function() {
-              currentSpeakerGSR();
-            });
-            </script>
-            </div>
-
-            <div id="gsr-timer">
-
-            <script>
-            $( document ).ready(function() {
-              GSRTimer('show');
-            });
-            </script>
-            </div>
-
-            <div id="gsr-progress" class="progress">
-              <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <div id="gsr-timer-buttons">
-              <button class="btn btn-primary btn-start" onclick="GSRTimer('start')">Start</button>
-              <button class="btn btn-primary btn-pause" onclick="GSRTimer('pause')">Pause</button>
-              <button class="btn btn-primary btn-next" onclick="GSRTimer('next')">Next</button>
-
-            </div>
-          </div>
-          <div class="col-6">
-            <h3>Next Speakers</h3>
-            <div id="gsr">
+        <div class="tab-content"></div>
+          <div id="gsr" class="debatepane tab-pane fade show active">
+            <div class="row">
+            <div class="col-6 text-center">
+              <div id="gsr-current-speaker">
               <script>
               $( document ).ready(function() {
-                showGSR();
-              });
-              </script>
-            </div>
-            <div id="addcountries">
-            <h3>Add Countries to Speakers List</h3>
-              <div id="gsr-countrylist">
-              <script>
-              $( document ).ready(function() {
-                showCountriesPresentGSR();
+                currentSpeakerGSR();
               });
               </script>
               </div>
+
+              <div id="gsr-timer">
+
+              <script>
+              $( document ).ready(function() {
+                GSRTimer('show');
+              });
+              </script>
+              </div>
+
+              <div id="gsr-progress" class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div id="gsr-timer-buttons">
+                <button class="btn btn-primary btn-start" onclick="GSRTimer('start')">Start</button>
+                <button class="btn btn-primary btn-pause" onclick="GSRTimer('pause')">Pause</button>
+                <button class="btn btn-primary btn-next" onclick="GSRTimer('next')">Next</button>
+
+              </div>
             </div>
+            <div class="col-6">
+              <h3>Next Speakers</h3>
+              <div id="gsr">
+                <script>
+                $( document ).ready(function() {
+                  showGSR();
+                });
+                </script>
+              </div>
+              <div id="addcountries">
+              <h3>Add Countries to Speakers List</h3>
+                <div id="gsr-countrylist">
+                <script>
+                $( document ).ready(function() {
+                  showCountriesPresentGSR();
+                });
+                </script>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          </div>
+          <div id="mod" class="tab-pane fade">
 
           </div>
-        </div>
-        <div id="mod">
+          <div id="unmod" class="tab-pane fade">
+          </div>
+          <div id="singlesp" class="tab-pane fade">
 
-        </div>
-        <div id="unmod">
-        </div>
-        <div id="singlesp">
+          </div>
+          <div id="secondarysr" class="tab-pane fade">
 
-        </div>
-        <div id="secondarysr">
-
-        </div>
+          </div>
       </div>
     </div>
 
